@@ -5,8 +5,8 @@
 n_simulaciones <- 50000  # Número de veces que se repetirá el experimento
 historico      <- vector("numeric",n_simulaciones) # Vector donde guardaremos las simulaciones
 
-n      <- 100  # Número de pisos
-lambda <- 50   # Parámetro de la distribución Poisson
+n      <- 50  # Número de pisos
+lambda <- 50  # Parámetro de la distribución Poisson
 for( sim in 1:n_simulaciones ){
   Y   <- rpois(n = 1, lambda = lambda)                 # Número de personas que suben al elevador
   X_Y <- rbinom(n = 1, size = n, prob = 1-(1-1/n)^Y )  # Número de paradas del elevador dado X
