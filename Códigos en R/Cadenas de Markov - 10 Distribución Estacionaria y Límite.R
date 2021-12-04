@@ -8,7 +8,7 @@ P <- matrix(data = c(  1,  0,  0,
                        0,  0,  1),
             nrow = 3,ncol = 3, byrow = TRUE)
 
-# FIJAMOS UN ALPHA Y CREAMOS EL VECTOR CON LA DISTRIBUCI?N ESTACIAR
+# FIJAMOS UN ALPHA Y CREAMOS EL VECTOR CON LA DISTRIBUCIóN ESTACIAR
 alpha <- runif(1)  #  pi/4
 distr_estacionaria <- c(alpha, 0, 1-alpha)
 
@@ -79,6 +79,8 @@ elevar_matriz <- function(x, k){
 # Calculamos la matriz l?mite y la distribuci?n limite por m?todos num?ricos
 P_lim <- elevar_matriz( x = P, k = 1000); P_lim
 distr_lim_numerico <- diag(P_lim); distr_lim_numerico
+
+
 
 # Resultado Exacto
 distr_lim_exacta <- c(b/(a+b),a/(a+b))
