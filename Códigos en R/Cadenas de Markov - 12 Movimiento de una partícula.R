@@ -4,8 +4,12 @@
 
 #######################################################
 # Parámetros iniciales
-c <- 2
-d <- 3
+c <- 3
+d <- 5
+
+# {1, 2, 3, ..., c, c+1, c+2, c+3, ..., c+d}
+# {1, 2, 3, 4, 5}
+# {c, c, d, d, d}
 
 #######################################################
 # Generamos nuestro espacio de estados, elegimos un espacio inicial al azar
@@ -26,7 +30,7 @@ matrixcalc::matrix.power(x = matriz_transicion, k = 1002)
 #######################################################
 # Distrbución Estacionaria // Dejar "corriendo" la cadena
 set.seed(123) # Dejamos una semilla para reproducir el experimento
-num_pasos     <- 100000
+num_pasos     <- 1000000
 cadena_markov <- vector(mode = "numeric", length = num_pasos)
 estado_actual <- estado_inicial
 for( k in seq(from=1, to=num_pasos) ){
@@ -55,6 +59,9 @@ prop.table(table(cadena_markov))
 # 1         2         3         4         5 
 # 0.2505975 0.2493975 0.1678283 0.1654583 0.1667183 
 # podemos ver que 1/(2c) = 1/4 = 0.25 mientras que 1/(2d) = 1/6 = 0.166666
+
+# S = {1, 2, 3, ..., c, c+1, c+2, ..., c+d }
+# pi = {1/(2c), 1/(2c), 1/(2c), ..., 1/(2c), 1/(2d), 1/(2d), 1/(2d), ..., 1/(2d) }
 
 ####################################################################################################
 # FIN DEL ARCHIVO
